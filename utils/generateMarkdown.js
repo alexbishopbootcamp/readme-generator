@@ -69,6 +69,10 @@ function generateMarkdown(data) {
 }
 
 // Package exports as object
-const md = {generateMarkdown: generateMarkdown}
+const md = {
+  renderLicenseBadge: renderLicenseBadge,
+  renderLicenseLink: renderLicenseLink,
+  generateMarkdown: generateMarkdown
+}
 
 module.exports = md;
