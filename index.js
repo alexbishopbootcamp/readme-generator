@@ -173,7 +173,7 @@ async function writeToFile(fileName, data) {
 async function init() {
   // await writeToFile("README.md", "Hello World!");
   // Query user for data
-  const answers = await inquirer.prompt(questions)
+  const answers = await inquirer.prompt(questions);
 }
 
 // Function call to initialize app
