@@ -21,7 +21,13 @@ Clone the repository and run ```npm install``` in the root directory. A Node.js 
 
 ## Usage
 
-Run ```node index``` in the root directory.
+Run ```node index``` in the root directory and provide answers to the questions as shown below:
+
+![Preview image](preview.png)
+
+This README was generated with these prompts.
+
+A video demoing the use of this app can be found [here](https://drive.google.com/file/d/19j8nTk07nr8D32jvlW_KZr7zqJblKgeX/view?usp=sharing)
 
 ## License
 
