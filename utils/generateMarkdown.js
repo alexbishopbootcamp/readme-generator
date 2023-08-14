@@ -39,7 +39,7 @@ function renderLicenseSection(license) {
     return "";
   }
   let builder = "## License\n\n";
-  builder += renderLicenseLink(license);
+  builder += `This project uses the ${renderLicenseLink(license)} license.`;
   builder += "\n\n";
   return builder;
 }
@@ -72,6 +72,7 @@ function generateMarkdown(data) {
 const md = {
   renderLicenseBadge: renderLicenseBadge,
   renderLicenseLink: renderLicenseLink,
+  renderLicenseSection: renderLicenseSection,
   generateMarkdown: generateMarkdown
 }
 
