@@ -44,6 +44,7 @@ function renderLicenseSection(license) {
   return builder;
 }
 
+// Build markdown
 function generateMarkdown(data) {
   let builder = "";
   builder += `# ${data.title}`
@@ -67,6 +68,7 @@ function generateMarkdown(data) {
   return builder;
 }
 
+// Package exports as object
 const md = {generateMarkdown: generateMarkdown}
 
 module.exports = md;

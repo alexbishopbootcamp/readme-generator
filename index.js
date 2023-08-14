@@ -1,9 +1,9 @@
-// TODO: Include packages needed for this application
-// Import inquirer
+// Imports
 const inquirer = require('inquirer');
 const fs = require('fs');
 const md = require('./utils/generateMarkdown.js');
 
+// Our questions for inquirer
 const questions = [
   {
     name: "title",
@@ -115,6 +115,7 @@ const questions = [
   }
 ];
 
+// Question to ask if file already exists
 const overwriteQuestion = [
   {
     name: "overwrite",
@@ -128,7 +129,6 @@ const overwriteQuestion = [
 ]
 
 
-// TODO: Create a function to write README file
 async function writeToFile(fileName, data) {
   let shouldOverwrite;
 
@@ -140,20 +140,19 @@ async function writeToFile(fileName, data) {
     // Check if file exists
     if(fs.existsSync(`./out/${fileName}`)) {
       // Ask user if they want to overwrite file
-      do {
-        shouldOverwrite = await inquirer
-          .prompt(overwriteQuestion)
-          .then((answers) => {
-            return answers.overwrite;
-          })
-          .catch((error) => {
-            if (error.isTtyError) {
-              console.log("Prompt couldn't be rendered in the current environment");
-            } else {
-              console.log("Unknown error");
-            }
-          });
-      } while (shouldOverwrite !== 'Yes' && shouldOverwrite !== 'No')
+      shouldOverwrite = await inquirer
+        .prompt(overwriteQuestion)
+        .then((answers) => {
+          return answers.overwrite;
+        })
+        .catch((error) => {
+          if (error.isTtyError) {
+            console.log("Prompt couldn't be rendered in the current environment");
+          } else {
+            console.log("Unknown error when prompting for input");
+          }
+          shouldOverwrite = 'No';
+        });
     } else {
       shouldOverwrite = 'Yes';
     }
@@ -169,9 +168,7 @@ async function writeToFile(fileName, data) {
   }
 }
 
-// TODO: Create a function to initialize app
 async function init() {
-  // await writeToFile("README.md", "Hello World!");
   // Query user for data
   const answers = await inquirer.prompt(questions);
   // Generate markdown
@@ -180,5 +177,4 @@ async function init() {
   await writeToFile("README.md", markdown);
 }
 
-// Function call to initialize app
 init();
