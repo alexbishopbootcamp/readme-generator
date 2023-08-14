@@ -31,7 +31,7 @@ A video demoing the use of this app can be found [here](https://drive.google.com
 
 ## License
 
-[MIT](https://opensource.org/licenses/MIT)
+This project uses the [MIT](https://opensource.org/licenses/MIT) license.
 
 ## Contributing
 
