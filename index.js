@@ -174,6 +174,10 @@ async function init() {
   // await writeToFile("README.md", "Hello World!");
   // Query user for data
   const answers = await inquirer.prompt(questions);
+  // Generate markdown
+  const markdown = md.generateMarkdown(answers);
+  // Write markdown to file
+  await writeToFile("README.md", markdown);
 }
 
 // Function call to initialize app
